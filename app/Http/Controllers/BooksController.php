@@ -27,7 +27,7 @@ class BooksController extends Controller {
             'books' => $books->get(),
             'limit' => ($request->has('limit') ? $request->limit : ''),
             'offset' => ($request->has('offset') ? $request->offset : ''),
-            'rows' =>  $books->get()->count(),
+            'rows' =>  Books::get()->count(),
         ];
         if (count($books['books']) == 0) {
             return response()->json(['status'=>'NOT_FOUND','message'=>'Please provide others parameters.'],404);

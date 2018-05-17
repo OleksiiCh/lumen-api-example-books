@@ -13,7 +13,7 @@ class AuthorsController extends Controller {
      * @return void
      */
     public function __construct() {
-        //
+        
     }
 
     public function showAllAuthors(Request $request) {
@@ -27,7 +27,7 @@ class AuthorsController extends Controller {
             'authors' => $allAuthors->get(),
             'limit' => ($request->has('limit') ? $request->limit : ''),
             'offset' => ($request->has('offset') ? $request->offset : ''),
-            'rows' => $allAuthors->count(),
+            'rows' => Authors::get()->count(),
         ];
         if (count($authors['authors']) == 0) {
             $status = 'NOT_FOUND';
